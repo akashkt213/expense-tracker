@@ -1,98 +1,165 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { ScrollView, Text, View } from "react-native";
+import TransactionItem from "../components/transactions";
+import "../global.css";
 
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+const transactionData = [
+  {
+    title: "Salary",
+    category: "Income",
+    amount: 5000.0,
+    type: "income",
+    date: "2025-05-23",
+    icon: "money",
+  },
+  {
+    title: "Going to Work",
+    category: "Transportation",
+    amount: -70.0,
+    type: "expense",
+    date: "2025-05-23",
+    icon: "car",
+  },
+  {
+    title: "Airpods",
+    category: "Shopping",
+    amount: -150.0,
+    type: "expense",
+    date: "2025-05-23",
+    icon: "shopping-bag",
+  },
+  {
+    title: "Freelance Work",
+    category: "Income",
+    amount: 500.0,
+    type: "income",
+    date: "2025-05-23",
+    icon: "briefcase",
+  },
+  {
+    title: "Cinema",
+    category: "Entertainment",
+    amount: -64.0,
+    type: "expense",
+    date: "2025-05-23",
+    icon: "film",
+  },
+  {
+    title: "Salary",
+    category: "Income",
+    amount: 5000.0,
+    type: "income",
+    date: "2025-05-23",
+    icon: "money",
+  },
+  {
+    title: "Going to Work",
+    category: "Transportation",
+    amount: -70.0,
+    type: "expense",
+    date: "2025-05-23",
+    icon: "car",
+  },
+  {
+    title: "Airpods",
+    category: "Shopping",
+    amount: -150.0,
+    type: "expense",
+    date: "2025-05-23",
+    icon: "shopping-bag",
+  },
+  {
+    title: "Freelance Work",
+    category: "Income",
+    amount: 500.0,
+    type: "income",
+    date: "2025-05-23",
+    icon: "briefcase",
+  },
+  {
+    title: "Cinema",
+    category: "Entertainment",
+    amount: -64.0,
+    type: "expense",
+    date: "2025-05-23",
+    icon: "film",
+  },
+  {
+    title: "Salary",
+    category: "Income",
+    amount: 5000.0,
+    type: "income",
+    date: "2025-05-23",
+    icon: "money",
+  },
+  {
+    title: "Going to Work",
+    category: "Transportation",
+    amount: -70.0,
+    type: "expense",
+    date: "2025-05-23",
+    icon: "car",
+  },
+  {
+    title: "Airpods",
+    category: "Shopping",
+    amount: -150.0,
+    type: "expense",
+    date: "2025-05-23",
+    icon: "shopping-bag",
+  },
+  {
+    title: "Freelance Work",
+    category: "Income",
+    amount: 500.0,
+    type: "income",
+    date: "2025-05-23",
+    icon: "briefcase",
+  },
+  {
+    title: "Cinema",
+    category: "Entertainment",
+    amount: -64.0,
+    type: "expense",
+    date: "2025-05-23",
+    icon: "film",
+  },
+];
 
-export default function HomeScreen() {
+export default function Index() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+    <View className="p-6 flex-1 mt-20 mb-10">
+      <View className="bg-white items-start flex justify-between rounded-md p-3 elevation-sm h-[20vh]">
+        <View className="flex items-center justify-center flex-1 w-full">
+          <Text className="text-sm text-gray-500 font-medium">Total spendings</Text>
+          <Text className="text-2xl font-bold">3289.44</Text>
+        </View>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+        <View className="bg-background flex flex-row items-center justify-between gap-2">
+          <View className="flex-1 p-2 rounded-md flex items-center justify-between">
+            <Text className="text-sm text-gray-500 font-medium">Income</Text>
+            <Text className="text-md font-semibold">3289.44</Text>
+          </View>
+          <View className="w-[1px] h-[60%] bg-gray-300"/>
+          <View className="flex-1 p-2 rounded-md flex items-center justify-between">
+            <Text className="text-sm text-gray-500 font-medium">Expense</Text>
+            <Text className="text-md font-semibold">3289.44</Text>
+          </View>
+        </View>
+      </View>
+
+      <View className="py-5">
+        <Text className="text-lg font-semibold">Recent Transactions</Text>
+      </View>
+
+      <ScrollView
+        className="flex-1"
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ minHeight: "100%", paddingBottom: 10 }}
+      >
+        {transactionData.map((item, index) => (
+          <TransactionItem key={index} data={item} />
+        ))}
+      </ScrollView>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
