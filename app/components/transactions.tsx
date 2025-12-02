@@ -1,5 +1,6 @@
+import { icons } from "@/constants/icons";
 import React from "react";
-import { Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { Transaction } from "../types/transaction"; // import type
 
 interface Props {
@@ -42,10 +43,12 @@ const TransactionItem: React.FC<Props> = ({ data }) => {
         </View>
       </View>
 
-      {/* Right Delete Icon Placeholder */}
-      <View className="h-10 w-10 rounded-full items-center justify-center ml-3">
-        <Text>Del</Text>
-      </View>
+      <TouchableOpacity
+        onPress={() => alert("Confirm deletion?")}
+        className="h-10 w-10 rounded-full items-center justify-center ml-3"
+      >
+        <Image source={icons.trash} className="h-4 w-4" tintColor="#FF0000" />
+      </TouchableOpacity>
     </View>
   );
 };

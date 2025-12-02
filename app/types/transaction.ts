@@ -1,4 +1,4 @@
-export interface Transaction {
+export default interface Transaction {
   title: string;
   category: string;
   amount: number;

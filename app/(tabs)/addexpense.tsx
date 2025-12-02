@@ -122,7 +122,7 @@ const AddExpense = () => {
                   isSelected ? "bg-[#e28743] text-white" : "bg-white"
                 }`}
               >
-                <Image source={category[item.icon]} className="h-4 w-4" />
+                <Image source={category[item.icon]} className={`h-4 w-4`} tintColor={isSelected ? "#fff" : "#000"} />
 
                 <Text
                   className={`text-sm ${

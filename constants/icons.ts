@@ -16,9 +16,8 @@ import save from "@/assets/icons/save.png";
 import search from "@/assets/icons/search.png";
 import star from "@/assets/icons/star.png";
 import tag from "@/assets/icons/tag.png";
+import trash from "@/assets/icons/trash.png";
 import wallet from "@/assets/icons/wallet.png";
-
-
 
 export const icons = {
   home,
@@ -39,5 +38,6 @@ export const icons = {
   ellipsis,
   food,
   shopping,
-  transport
+  transport,
+  trash,
 };
